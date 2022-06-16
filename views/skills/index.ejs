@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <title>Document</title>
 </head>
 <body>
-  <h1>Developer-Skills</h1>
+  <h1>Developer-Skills as of <%= time %> </h1>
   <ul>
     <% skills.forEach(skill => { %>
       <li>
+        <form action="/skills/<%= skill._id%>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+          >
+          <button type="'submit">X</button>
+        </form>
         <a href="/skills/<%= skill.id %>"><%= skill.text %></a> 
 				- 
 				<%= skill.done ? 'I have that!' : 'I am working on that' %>
